@@ -51,7 +51,8 @@ if (Meteor.isClient) {
       wrapper.find('form').simulate('submit')
 
       spy.calls[0].arguments[1]({ reason })
-      expect(wrapper.state('error').length).toNotBe(0)
+      expect(wrapper.state('error')).toEqual(reason)
+      
       spy.calls[0].arguments[1]()
       expect(wrapper.state('error').length).toBe(0)
     })
