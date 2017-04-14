@@ -30,6 +30,16 @@ if (Meteor.isClient) {
       expect(spy.calls[0].arguments[1]).toEqual(password)
     })
 
-    it('Should set loginWithPassword callback errors')
+    it('Should set loginWithPassword callback errors', function () {
+      let spy = expect.createSpy()
+      let wrapper = mount( <Login loginWithPassword={spy} /> )
+
+      wrapper.find('form').simulate('submit')
+
+      spy.calls[0].arguments[2]({})
+      expect(wrapper.state('error').length).toNotBe(0)
+      spy.calls[0].arguments[2]()
+      expect(wrapper.state('error').length).toBe(0)
+    })
   })
 }
