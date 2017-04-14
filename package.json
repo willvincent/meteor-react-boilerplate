@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "enzyme": "^2.8.2",
-    "expect": "^1.20.2"
+    "expect": "^1.20.2",
+    "react-addons-test-utils": "^15.5.1"
   }
 }
